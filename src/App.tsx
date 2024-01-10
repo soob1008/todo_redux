@@ -1,25 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import React from "react";
+import { ConfigProvider } from "antd";
+import Todo from "./features/todo/Todo";
+import { Flex } from "antd";
+import { Provider } from "react-redux";
+import { store } from "./app/store";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <ConfigProvider theme={{ token: { colorPrimary: "#b564ff" } }}>
+      <Provider store={store}>
+        <Flex
+          justify={"center"}
+          align={"center"}
+          style={{ height: "100vh", backgroundColor: "#e0e0f4" }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Todo />
+        </Flex>
+      </Provider>
+    </ConfigProvider>
   );
 }
 
